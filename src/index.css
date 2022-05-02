@@ -22,6 +22,17 @@ code {
   flex-direction: column;
   justify-content: space-between;
 }
+.note.new{
+  background-color: #67d7cc;
+}
+textarea{
+  background-color: #67d7cc;
+  border: none;
+  resize: none;
+}
+textarea:focus{
+  outline: none;
+}
 .note-footer {
   display: flex;
   align-items: center;
@@ -38,4 +49,14 @@ code {
   margin-left: auto;
   padding-right: 20px;
   padding-left: 20px;
+}
+.save{
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+.save:hover{
+  background-color: #ededed;
+  cursor: pointer;
 }
