@@ -21,6 +21,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  white-space: pre-wrap; 
 }
 .note.new{
   background-color: #67d7cc;
@@ -59,4 +60,8 @@ textarea:focus{
 .save:hover{
   background-color: #ededed;
   cursor: pointer;
+}
+.delete-icon:hover{
+  cursor: pointer;
+  color: #1d4e86;
 }
