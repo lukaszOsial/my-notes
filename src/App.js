@@ -1,30 +1,37 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import NotesList from "./components/NotesList";
+import Search from "./components/Search";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: "tekst pierwszej notatki",
-      date: "02/05/2022"
+      text: "pierwsza notatka",
+      date: "1.05.2022"
     },
     {
       id: nanoid(),
-      text: "tekst drugiej notatki",
-      date: "01/05/2022"
+      text: "druga notatka",
+      date: "2.05.2022"
     },
     {
       id: nanoid(),
-      text: "tekst trzeciej notatki",
-      date: "03/05/2022"
+      text: "trzecia notatka",
+      date: "3.05.2022"
     },
 ]);
+
+  const [searchText, setSearchText] = useState('');
+
+  const [darkMode, setDarkMode] = useState(false);
 
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
-      id: nanoid,
+      id: nanoid(),
       text: text,
       date: date.toLocaleDateString()
     }
@@ -37,12 +44,19 @@ const App = () => {
     setNotes(newNotes);
   }
   return(
-    <div className="container">
-      <NotesList 
-        notes={notes} 
-        handleAddNote={addNote} 
-        handleDeleteNote={deleteNote}
-      />
+    <div className={`${darkMode && 'dark-mode'}`}>
+      <div className="container">
+        <Header handleToggleDarkMode={setDarkMode}/>
+        <Search handleSearchNote={setSearchText}/>
+        <NotesList 
+          notes={notes.filter((note) => 
+            note.text.toLowerCase().includes(searchText)//bierze aktualna liste notatek i sprawdza z tekstem z search bar i daje rezultat do NotesList jako prop
+          )} 
+          handleAddNote={addNote} 
+          handleDeleteNote={deleteNote}
+        />
+      </div>
+      <Footer />
     </div>
   )
 }
