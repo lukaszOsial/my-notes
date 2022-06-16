@@ -13,7 +13,7 @@ code {
 }
 
 .note {
-  background-color: #fef68a;
+  background-color: #fff56a;
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 1rem;
@@ -24,12 +24,15 @@ code {
   white-space: pre-wrap; 
 }
 .note.new{
-  background-color: #67d7cc;
+  background-color: #57b45c;
 }
 textarea{
-  background-color: #67d7cc;
+  background-color: #57b45c;
   border: none;
   resize: none;
+}
+::placeholder{
+  color: black;
 }
 textarea:focus{
   outline: none;
@@ -42,7 +45,7 @@ textarea:focus{
 .notes-list {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 .container {
   max-width: 1000px;
@@ -63,7 +66,7 @@ textarea:focus{
 }
 .delete-icon:hover{
   cursor: pointer;
-  color: #1d4e86;
+  color: #454749;
 }
 .search{
   display: flex;

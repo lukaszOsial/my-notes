@@ -6,23 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: "pierwsza notatka",
-      date: "1.05.2022"
-    },
-    {
-      id: nanoid(),
-      text: "druga notatka",
-      date: "2.05.2022"
-    },
-    {
-      id: nanoid(),
-      text: "trzecia notatka",
-      date: "3.05.2022"
-    },
-]);
+  const [notes, setNotes] = useState([]);
 
   const [searchText, setSearchText] = useState('');
 
@@ -43,6 +27,10 @@ const App = () => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   }
+  const editNote = (id) => {
+    const newNotes = notes.filter((note) => note.id === id);
+    setNotes(newNotes);
+  }
   return(
     <div className={`${darkMode && 'dark-mode'}`}>
       <div className="container">
@@ -54,6 +42,7 @@ const App = () => {
           )} 
           handleAddNote={addNote} 
           handleDeleteNote={deleteNote}
+          handleEditNote={editNote}
         />
       </div>
       <Footer />

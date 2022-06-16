@@ -1,4 +1,5 @@
 import {MdDeleteForever} from 'react-icons/md';
+import {GrEdit} from 'react-icons/gr';
 
 const Note = ({ id, text, date, handleDeleteNote }) => {
     return(
